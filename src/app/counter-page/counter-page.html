@@ -1,0 +1,7 @@
+<p>counter-page works!</p>
+
+<p>contador:{{ counter }}</p>
+
+<button (click)="increment()">aumetar contador</button>
+<button (click)="reset()" [disabled]="isDisabled()">poner en 10</button>
+<button (click)="decrement()">Disminuir</button>
