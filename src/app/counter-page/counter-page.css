@@ -1,0 +1,29 @@
+h2 {
+  color: darkcyan;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+button {
+  background-color: darkcyan;
+  color: white;
+  margin: 0 15px 0 0;
+  border: 0;
+  border-radius: 5px;
+  height: 30px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
