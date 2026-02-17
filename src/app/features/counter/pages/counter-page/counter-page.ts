@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CounterSignal } from './counter-signal/counter-signal';
+import { CounterSignal } from '../../componets/counter-signal/counter-signal';
 
 @Component({
   selector: 'app-counter-page',
