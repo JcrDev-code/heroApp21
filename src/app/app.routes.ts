@@ -5,11 +5,15 @@ import { CounterPage } from './features/counter/pages/counter-page/counter-page'
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'counter',
     component: CounterPage,
   },
   {
     path: 'hero',
     component: HeroDescription,
+  },
+  {
+    path: '**',
+    redirectTo: 'counter',
   },
 ];
