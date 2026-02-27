@@ -1,0 +1,40 @@
+<h1 class="text-3xl">Gestión de personages de DragonBall</h1>
+<div class="divider divider-accent"></div>
+<section class="flex flex-col sm:flex-row gap-4">
+  <div class="sm:w-1/2">
+    <h2 class="text-xl tracking-wide">Lista de Personajes</h2>
+
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">Nombre: {{ name() }}</legend>
+      <input
+        type="text"
+        class="input w-full"
+        placeholder="Type here"
+        [value]="name()"
+        (input)="name.set(nameInput.value)"
+        #nameInput
+      />
+    </fieldset>
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">Poder: {{ power() }}</legend>
+      <input type="number" class="input w-full" placeholder="Type here" [(ngModel)]="power" />
+    </fieldset>
+    <div class="flex justify-end">
+      <button class="btn btn-active btn-accent mt-2" (click)="addHero()">Agregar</button>
+    </div>
+  </div>
+
+  <div class="sm:w-1/2">
+    <h2 class="text-xl tracking-wide">Lista de Personajes</h2>
+    <ul class="list bg-base-100 rounded-box shadow-md">
+      <li class="list-row">
+        <div class="text-4xl font-thin opacity-30 tabular-nums">01</div>
+
+        <div class="list-col-grow">
+          <div>Goku</div>
+          <div class="text-xs uppercase font-semibold opacity-60">9000</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
