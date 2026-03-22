@@ -1,0 +1,28 @@
+<h2 class="text-xl tracking-wide">Agregar Personajes</h2>
+
+<fieldset class="fieldset">
+  <legend class="fieldset-legend">Nombre: {{ name() }}</legend>
+  <input
+    type="text"
+    class="input w-full"
+    placeholder="Type here"
+    [value]="name()"
+    (input)="name.set(nameInput.value)"
+    #nameInput
+  />
+</fieldset>
+<fieldset class="fieldset">
+  <legend class="fieldset-legend">Poder: {{ power() }}</legend>
+  <input
+    type="number"
+    class="input w-full"
+    placeholder="Type here"
+    [(ngModel)]="power"
+    (focus)="$event.target.select()"
+  />
+</fieldset>
+<div class="flex justify-end">
+  <button class="btn btn-active btn-accent mt-2" (click)="addCharacter()" [disabled]="isDisable()">
+    Agregar
+  </button>
+</div>
