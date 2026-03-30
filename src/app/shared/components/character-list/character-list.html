@@ -1,4 +1,4 @@
-<h2 class="text-xl tracking-wide">Lista de Personajes</h2>
+<h2 class="text-xl tracking-wide">{{ listTitle() }}</h2>
 <ul class="list bg-base-100 rounded-box shadow-md">
   @for (character of characters(); track character.id) {
     @if (character.power < 5001) {

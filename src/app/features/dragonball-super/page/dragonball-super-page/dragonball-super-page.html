@@ -1,9 +1,10 @@
-<character-title />
+<!-- <character-title pageTitle="Gestión de personages de DragonBall Super" /> -->
+<character-title [pageTitle]="pageTitle()" />
 <section class="flex flex-col sm:flex-row gap-4">
   <div class="sm:w-1/2">
     <character-add />
   </div>
   <div class="sm:w-1/2">
-    <character-list />
+    <character-list listTitle="Personajes de DragonBall Super" [characters]="characters()" />
   </div>
 </section>
