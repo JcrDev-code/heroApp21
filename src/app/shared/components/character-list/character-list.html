@@ -1,10 +1,10 @@
 <h2 class="text-xl tracking-wide">{{ listTitle() }}</h2>
 <ul class="list bg-base-100 rounded-box shadow-md">
-  @for (character of characters(); track character.id) {
+  @for (character of characters(); track character.id; let idx = $index) {
     @if (character.power < 5001) {
       <li class="list-row">
         <div class="text-4xl font-thin opacity-30 tabular-nums text-red-500">
-          {{ character.id }}
+          {{ idx + 1 }}
         </div>
 
         <div class="list-col-grow text-red-500">
@@ -17,7 +17,7 @@
     } @else if (character.power < 9001) {
       <li class="list-row">
         <div class="text-4xl font-thin opacity-30 tabular-nums">
-          {{ character.id }}
+          {{ idx + 1 }}
         </div>
 
         <div class="list-col-grow">
@@ -30,7 +30,7 @@
     } @else {
       <li class="list-row">
         <div class="text-4xl font-thin opacity-30 tabular-nums text-blue-500">
-          {{ character.id }}
+          {{ idx + 1 }}
         </div>
 
         <div class="list-col-grow text-blue-500">

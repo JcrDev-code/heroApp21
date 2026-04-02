@@ -1,10 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-interface Character {
-  id: number;
-  name: string;
-  power: number;
-}
+
 @Component({
   selector: 'character-add',
   imports: [FormsModule],
@@ -15,20 +11,21 @@ export class CharacterAdd {
   name = signal('Goku');
   power = signal(9000);
 
-  characters = signal<Character[]>([]);
-
-  heroInfo = computed(() => {
-    return `${this.name()} tiene un poder de ${this.power()}`;
-  });
+  //characters va ser usada en otro componente, por eso se define como output,
+  // para que pueda ser accedida desde el componente padre
+  characters = output<Character>();
 
   addCharacter() {
     const newCharacter: Character = {
-      id: this.characters().length + 1,
+      //  id: Math.floor(Math.random() * 10000), // Genera un ID aleatorio
+      id: crypto.randomUUID(), // Genera un ID único utilizando la API de Crypto
       name: this.name(),
       power: this.power(),
     };
 
-    this.characters.update((chars) => [...chars, newCharacter]);
+    // this.characters.update((chars) => [...chars, newCharacter]);
+    this.characters.emit(newCharacter);
+
     this.resetFields();
   }
 

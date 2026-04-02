@@ -12,4 +12,8 @@ export class DragonballSuperPage {
   pageTitle = signal('Gestión de personages de DragonBall Super');
 
   characters = signal<Character[]>([]);
+
+  addCharacter(newCharacter: Character) {
+    this.characters.update((chars) => [...chars, newCharacter]);
+  }
 }
