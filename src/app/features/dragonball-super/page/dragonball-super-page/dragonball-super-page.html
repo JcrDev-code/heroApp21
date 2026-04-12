@@ -2,9 +2,12 @@
 <character-title [pageTitle]="pageTitle()" />
 <section class="flex flex-col sm:flex-row gap-4">
   <div class="sm:w-1/2">
-    <character-add (characters)="addCharacter($event)" />
+    <character-add (characters)="dragonballSuperService.addCharacter($event)" />
   </div>
   <div class="sm:w-1/2">
-    <character-list listTitle="Personajes de DragonBall Super" [characters]="characters()" />
+    <character-list
+      listTitle="Personajes de DragonBall Super"
+      [characters]="dragonballSuperService.characters()"
+    />
   </div>
 </section>

@@ -1,92 +1,12 @@
-<!-- titulo -->
-<h1 class="text-3xl">Gestión de personages de DragonBall</h1>
-<div class="divider divider-accent"></div>
-
+<character-title [pageTitle]="pageTitle()" />
 <section class="flex flex-col sm:flex-row gap-4">
-  <!-- add -->
   <div class="sm:w-1/2">
-    <h2 class="text-xl tracking-wide">Agregar Personajes</h2>
-
-    <fieldset class="fieldset">
-      <legend class="fieldset-legend">Nombre: {{ name() }}</legend>
-      <input
-        type="text"
-        class="input w-full"
-        placeholder="Type here"
-        [value]="name()"
-        (input)="name.set(nameInput.value)"
-        #nameInput
-      />
-    </fieldset>
-    <fieldset class="fieldset">
-      <legend class="fieldset-legend">Poder: {{ power() }}</legend>
-      <input
-        type="number"
-        class="input w-full"
-        placeholder="Type here"
-        [(ngModel)]="power"
-        (focus)="$event.target.select()"
-      />
-    </fieldset>
-    <div class="flex justify-end">
-      <button
-        class="btn btn-active btn-accent mt-2"
-        (click)="addCharacter()"
-        [disabled]="isDisable()"
-      >
-        Agregar
-      </button>
-    </div>
+    <character-add (characters)="dragonballService.addCharacter($event)" />
   </div>
-
-  <!-- list -->
   <div class="sm:w-1/2">
-    <h2 class="text-xl tracking-wide">Lista de Personajes</h2>
-    <ul class="list bg-base-100 rounded-box shadow-md">
-      @for (character of characters(); track character.id) {
-        @if (character.power < 5001) {
-          <li class="list-row">
-            <div class="text-4xl font-thin opacity-30 tabular-nums text-red-500">
-              {{ character.id }}
-            </div>
-
-            <div class="list-col-grow text-red-500">
-              <div>{{ character.name }}</div>
-              <div class="text-xs uppercase font-semibold opacity-60 text-red-500">
-                {{ character.power }}
-              </div>
-            </div>
-          </li>
-        } @else if (character.power < 9001) {
-          <li class="list-row">
-            <div class="text-4xl font-thin opacity-30 tabular-nums">
-              {{ character.id }}
-            </div>
-
-            <div class="list-col-grow">
-              <div>{{ character.name }}</div>
-              <div class="text-xs uppercase font-semibold opacity-60">
-                {{ character.power }}
-              </div>
-            </div>
-          </li>
-        } @else {
-          <li class="list-row">
-            <div class="text-4xl font-thin opacity-30 tabular-nums text-blue-500">
-              {{ character.id }}
-            </div>
-
-            <div class="list-col-grow text-blue-500">
-              <div>{{ character.name }}</div>
-              <div class="text-xs uppercase font-semibold opacity-60 text-blue-500">
-                {{ character.power }}
-              </div>
-            </div>
-          </li>
-        }
-      } @empty {
-        <p class="text-accent text-xl mt-2">No hay personajes, intente agregar nuevos personajes</p>
-      }
-    </ul>
+    <character-list
+      listTitle="Personajes de DragonBall Super"
+      [characters]="dragonballService.characters()"
+    />
   </div>
 </section>

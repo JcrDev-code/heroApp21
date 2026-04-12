@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterAdd {
-  name = signal('Goku');
-  power = signal(9000);
+  name = signal('');
+  power = signal(0);
 
   //characters va ser usada en otro componente, por eso se define como output,
   // para que pueda ser accedida desde el componente padre
